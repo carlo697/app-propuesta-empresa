@@ -41,15 +41,6 @@ body {
   transition: all 0.5s;
 }
 
-.screen .content {
-  position: relative;
-  z-index: 1;
-}
-
-.screen-gradient {
-  background: linear-gradient(rgb(211, 211, 211), white);
-}
-
 .overlay {
   position: absolute;
   width: 100%;
@@ -60,13 +51,33 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  padding: 1rem;
+  padding: 1.5rem 1.5rem 5rem 1.5rem;
+}
+
+.screen-gradient {
+  background: linear-gradient(rgb(211, 211, 211), white);
 }
 
 .screen-background {
   background: url(img/example.jpg);
   background-size: cover;
-  opacity: 0.5;
+  background-position-y: center;
+  opacity: 0.2;
+  animation: background-loop 400s infinite;
+}
+
+@keyframes background-loop {
+  0% {
+    background-position-x: left;
+  }
+
+  50% {
+    background-position-x: right;
+  }
+
+  100% {
+    background-position-x: left;
+  }
 }
 
 .screen.active {
@@ -158,7 +169,7 @@ form select:hover {
 }
 
 form select option {
-    text-align: left;
+  text-align: left;
 }
 
 .step,
@@ -219,10 +230,10 @@ label {
 }
 
 .color-sample {
-  --size: calc(5rem + 5vw);
+  --size: calc(4rem + 5vw);
   width: var(--size);
   height: var(--size);
-  margin: 1rem;
+  margin: 0.5rem;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 25%;
 
@@ -300,5 +311,18 @@ label {
   font-size: calc(2.5rem + 1vw);
   height: calc(7rem + 1vw);
   text-transform: capitalize;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.315);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.home-logo {
+  width: 80;
+  max-width: 400px;
+  max-height: 30vh;
+  margin-bottom: 2rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.233));
+}
+
+p {
+  max-width: 500px;
+  font-size: calc(0.8rem + 1vmin);
 }

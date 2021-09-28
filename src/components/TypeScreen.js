@@ -17,6 +17,7 @@ const TypeScreen = ({ options }) => {
   return (
     <div className="screen">
       <div className="overlay screen-gradient"></div>
+      <div className="overlay screen-background"></div>
       <div className="overlay">
         <form action="">
           <label htmlFor="">¿Que tipo de empresa es?</label>
