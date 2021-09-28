@@ -27,17 +27,20 @@ const NameScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="">Escriba el nombre de su empresa</label>
-        <input
-          ref={inputRef}
-          type="text"
-          value={name}
-          onChange={(e) => dispatch(setCompanyName(e.target.value))}
-        />
-      </form>
+      <div className="overlay screen-gradient"></div>
+      <div className="overlay">
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="">Escriba el nombre de su empresa</label>
+          <input
+            ref={inputRef}
+            type="text"
+            value={name}
+            onChange={(e) => dispatch(setCompanyName(e.target.value))}
+          />
+        </form>
 
-      <Buttons options={options} disableForwardButton={!name} />
+        <Buttons options={options} disableForwardButton={!name} />
+      </div>
     </div>
   );
 };

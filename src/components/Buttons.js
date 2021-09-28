@@ -6,15 +6,37 @@ const Buttons = ({
   showBackButton = true,
   disableForwardButton = false,
   disableBackButton = false,
+  backToFirstScreen = false,
+  backwardSkip = 1,
+  forwardSkip = 1,
 }) => {
-  const { index, nextScreen, lastScreen, screenCount } = options;
+  const {
+    index,
+    nextScreen,
+    lastScreen,
+    firstScreen,
+    screenCount,
+    skipScreens,
+  } = options;
+
+  const handleGoBack = () => {
+    if (backToFirstScreen) {
+      firstScreen();
+    } else {
+      skipScreens(-backwardSkip);
+    }
+  };
+
+  const handleGoNext = () => {
+    skipScreens(forwardSkip);
+  };
 
   return (
     <div className="buttons">
       {index > 0 && showBackButton ? (
         <button
           className="btn btn-link"
-          onClick={lastScreen}
+          onClick={handleGoBack}
           disabled={disableBackButton}
         >
           Ir Atrás
@@ -26,7 +48,7 @@ const Buttons = ({
       {index !== screenCount - 1 && showForwardButton ? (
         <button
           className="btn btn-outline"
-          onClick={nextScreen}
+          onClick={handleGoNext}
           disabled={disableForwardButton}
         >
           Siguiente

@@ -21,19 +21,22 @@ const StyleScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <form action="">
-        <label htmlFor="">¿Qué estilo piensa que posee su logotipo?</label>
-        <select name="type" onChange={handleChange} value={style}>
-          <option value=""></option>
-          {styles[type].map((item, index) => (
-            <option value={item} key={index}>
-              {item}
-            </option>
-          ))}
-        </select>
-      </form>
+      <div className="overlay screen-gradient"></div>
+      <div className="overlay">
+        <form action="">
+          <label htmlFor="">¿Qué estilo piensa que posee su logotipo?</label>
+          <select name="type" onChange={handleChange} value={style}>
+            <option value=""></option>
+            {styles[type].map((item, index) => (
+              <option value={item} key={index}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </form>
 
-      <Buttons options={options} disableForwardButton={style === ""} />
+        <Buttons options={options} disableForwardButton={style === ""} />
+      </div>
     </div>
   );
 };

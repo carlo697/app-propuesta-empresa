@@ -15,19 +15,22 @@ const TypeScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <form action="">
-        <label htmlFor="">¿Que tipo de empresa es?</label>
-        <select name="type" onChange={handleChange} value={type}>
-          <option value=""></option>
-          {types.map((item, index) => (
-            <option value={item} key={index}>
-              {item}
-            </option>
-          ))}
-        </select>
-      </form>
+      <div className="overlay screen-gradient"></div>
+      <div className="overlay">
+        <form action="">
+          <label htmlFor="">¿Que tipo de empresa es?</label>
+          <select name="type" onChange={handleChange} value={type}>
+            <option value=""></option>
+            {types.map((item, index) => (
+              <option value={item} key={index}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </form>
 
-      <Buttons options={options} disableForwardButton={type === ""} />
+        <Buttons options={options} disableForwardButton={type === ""} />
+      </div>
     </div>
   );
 };

@@ -48,29 +48,32 @@ const ResultScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <img className="result-img" src={image} alt="uploaded logo" />
-      <p className="company-name" style={{ fontFamily: fonts[fontIndex] }}>
-        {name}
-      </p>
+      <div className="overlay screen-gradient"></div>
+      <div className="overlay">
+        <img className="result-img" src={image} alt="uploaded logo" />
+        <p className="company-name" style={{ fontFamily: fonts[fontIndex] }}>
+          {name}
+        </p>
 
-      <div className="fonts">
-        {fonts.map((font, index) => {
-          const fontLoaded = loadFont(font);
+        <div className="fonts">
+          {fonts.map((font, index) => {
+            loadFont(font);
 
-          return (
-            <h2 key={index} className="font" style={{ fontFamily: font }}>
-              {font}
-            </h2>
-          );
-        })}
+            return (
+              <h2 key={index} className="font" style={{ fontFamily: font }}>
+                {font}
+              </h2>
+            );
+          })}
+        </div>
+
+        <div className="colors">
+          {colors.map((color, index) => (
+            <ColorSample color={color} key={index} />
+          ))}
+        </div>
+        <Buttons options={options} backwardSkip={2} />
       </div>
-
-      <div className="colors">
-        {colors.map((color, index) => (
-          <ColorSample color={color} key={index} />
-        ))}
-      </div>
-      <Buttons options={options} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { useDispatch, useSelector } from "react-redux";
 import { setImage } from "store/actions/companyActions";
@@ -22,33 +22,36 @@ const ImageScreen = ({ options }) => {
     }
 
     return () => {};
-  }, [acceptedFiles]);
+  }, [acceptedFiles, dispatch]);
 
   return (
     <div className="screen">
-      <div
-        {...getRootProps({
-          className: `dropzone rounded mx-5 mb-2 ${
-            isDragActive ? "drag-active" : ""
-          }`,
-        })}
-      >
-        <input name="import" {...getInputProps()} />
-        {acceptedFiles.length > 0 ? (
-          <React.Fragment>
-            {image && (
-              <img className="company-img" src={image} alt="uploaded logo" />
-            )}
-          </React.Fragment>
-        ) : (
-          <span>¡Suba el logo de su empresa haciendo clic aqui!</span>
-        )}
-      </div>
+      <div className="overlay screen-gradient"></div>
+      <div className="overlay">
+        <div
+          {...getRootProps({
+            className: `dropzone rounded mx-5 mb-2 ${
+              isDragActive ? "drag-active" : ""
+            }`,
+          })}
+        >
+          <input name="import" {...getInputProps()} />
+          {acceptedFiles.length > 0 ? (
+            <React.Fragment>
+              {image && (
+                <img className="company-img" src={image} alt="uploaded logo" />
+              )}
+            </React.Fragment>
+          ) : (
+            <span>¡Suba el logo de su empresa haciendo clic aqui!</span>
+          )}
+        </div>
 
-      <Buttons
-        options={options}
-        disableForwardButton={acceptedFiles.length === 0}
-      />
+        <Buttons
+          options={options}
+          disableForwardButton={acceptedFiles.length === 0}
+        />
+      </div>
     </div>
   );
 };

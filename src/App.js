@@ -1,4 +1,5 @@
 import ImageScreen from "components/ImageScreen";
+import LoadingScreen from "components/LoadingScreen";
 import ResultScreen from "components/ResultScreen";
 import Screen from "components/Screen";
 import StyleScreen from "components/StyleScreen";
@@ -18,28 +19,35 @@ function App() {
     ImageScreen,
     TypeScreen,
     StyleScreen,
+    LoadingScreen,
     ResultScreen,
   ]);
 
   const nextScreen = () => {
-    let target = currentScreen + 1;
-
-    if (target < screens.length) {
-      setCurrentScreen(target);
-    }
+    skipScreens(1);
   };
 
   const lastScreen = () => {
-    let target = currentScreen - 1;
-    if (target < 0) {
-      target = screens.length - 1;
-    }
+    skipScreens(-1);
+  };
+
+  const firstScreen = () => {
+    setCurrentScreen(0);
+  };
+
+  const skipScreens = (count) => {
+    let target = currentScreen + count;
+    target = Math.min(target, screens.length - 1);
+    target = Math.max(target, 0);
+
     setCurrentScreen(target);
   };
 
   const options = {
     nextScreen,
     lastScreen,
+    firstScreen,
+    skipScreens,
     currentScreen,
     screenCount: screens.length,
   };
