@@ -1,6 +1,6 @@
 export const localization = {
   serious: "Serio",
-  retro: "Retro",
+  retro: "Retro, Vintage",
   subtle: "Sutil",
   modern: "Moderno, Minimalista",
   
