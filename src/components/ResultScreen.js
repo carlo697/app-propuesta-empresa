@@ -1,9 +1,11 @@
-import { db, fonts } from "db";
+import { db } from "db";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { copyToClipboard, loadFont } from "utils";
+import { loadFont } from "utils";
 import Buttons from "./Buttons";
-const convert = require("color-convert");
+import ColorSample from "./ColorSample";
+
+const fontTime = 3000;
 
 const ResultScreen = ({ options }) => {
   // @ts-ignore
@@ -39,16 +41,17 @@ const ResultScreen = ({ options }) => {
 
   const { colors, fonts } = result;
 
-  const fontTime = 1000;
   const period = fonts.length * fontTime;
   const periodCount = Math.floor(elapsedTime / period);
-  const timeSinceLastPeriod = elapsedTime - (periodCount * period);
+  const timeSinceLastPeriod = elapsedTime - periodCount * period;
   const fontIndex = Math.floor(timeSinceLastPeriod / fontTime);
 
   return (
     <div className="screen">
       <img className="result-img" src={image} alt="uploaded logo" />
-      <p className="company-name" style={{ fontFamily: fonts[fontIndex] }}>{name}</p>
+      <p className="company-name" style={{ fontFamily: fonts[fontIndex] }}>
+        {name}
+      </p>
 
       <div className="fonts">
         {fonts.map((font, index) => {
@@ -63,41 +66,9 @@ const ResultScreen = ({ options }) => {
       </div>
 
       <div className="colors">
-        {colors.map((color, index) => {
-          let hex = "#FFFFFF";
-          let rgb = [255, 255, 255];
-
-          try {
-            // @ts-ignore
-            rgb = convert.keyword.rgb(color);
-            // @ts-ignore
-            hex = "#" + convert.keyword.hex(color);
-          } catch (error) {
-            try {
-              // @ts-ignore
-              rgb = convert.hex.rgb(color);
-              hex = color;
-            } catch (error) {}
-          }
-
-          const brightness =
-            (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
-
-          const useWhite = brightness < 155;
-
-          return (
-            <div
-              style={{ background: color }}
-              className="color-sample"
-              key={index}
-              onClick={() => copyToClipboard(hex)}
-            >
-              <p style={useWhite ? { color: "white" } : { color: "black" }}>
-                {hex}
-              </p>
-            </div>
-          );
-        })}
+        {colors.map((color, index) => (
+          <ColorSample color={color} key={index} />
+        ))}
       </div>
       <Buttons options={options} />
     </div>
