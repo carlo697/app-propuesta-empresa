@@ -25,7 +25,7 @@ const LoadingScreen = ({ options }) => {
   useEffect(() => {
     if (currentScreen === index) {
       setTimer(0);
-      setTimeout(2000 + Math.random() * 3000);
+      setTimeout(3000 + Math.random() * 2000);
     }
   }, [currentScreen, index]);
 

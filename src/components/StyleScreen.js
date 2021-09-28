@@ -1,4 +1,5 @@
 import { styles } from "db";
+import { findTranslation } from "localization";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setStyle } from "store/actions/companyActions";
@@ -29,7 +30,7 @@ const StyleScreen = ({ options }) => {
             <option value=""></option>
             {styles[type].map((item, index) => (
               <option value={item} key={index}>
-                {item}
+                {findTranslation(item)}
               </option>
             ))}
           </select>

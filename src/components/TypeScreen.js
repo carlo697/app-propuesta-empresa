@@ -1,4 +1,5 @@
 import { types } from "db";
+import { findTranslation } from "localization";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setType } from "store/actions/companyActions";
@@ -23,7 +24,7 @@ const TypeScreen = ({ options }) => {
             <option value=""></option>
             {types.map((item, index) => (
               <option value={item} key={index}>
-                {item}
+                {findTranslation(item)}
               </option>
             ))}
           </select>

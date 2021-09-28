@@ -157,6 +157,10 @@ form select:hover {
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.06);
 }
 
+form select option {
+    text-align: left;
+}
+
 .step,
 label {
   font-weight: 300;
