@@ -345,3 +345,12 @@ p {
   max-width: 500px;
   font-size: calc(0.8rem + 1vmin);
 }
+
+.overlay-lottie {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.opacity-1 {
+    opacity: 1;
+}
