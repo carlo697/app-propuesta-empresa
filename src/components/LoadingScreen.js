@@ -43,7 +43,6 @@ const LoadingScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <div className="overlay screen-gradient"></div>
       <div className="overlay">
         <Lottie options={defaultOptions} style={{ maxWidth: "450px" }} />
         <Buttons options={options} showForwardButton={false} />

@@ -26,7 +26,6 @@ const ImageScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <div className="overlay screen-gradient"></div>
       <div className="overlay">
         <div
           {...getRootProps({

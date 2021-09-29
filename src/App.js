@@ -54,6 +54,7 @@ function App() {
 
   return (
     <div className="screens">
+        <div className="overlay screen-background"></div>
       {screens.map((Item, index) => {
         const className =
           index === currentScreen

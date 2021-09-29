@@ -48,7 +48,6 @@ const ResultScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <div className="overlay screen-gradient"></div>
       <div className="overlay">
         <img className="result-img" src={image} alt="uploaded logo" />
         <p className="company-name" style={{ fontFamily: fonts[fontIndex] }}>

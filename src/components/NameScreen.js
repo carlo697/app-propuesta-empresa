@@ -27,7 +27,6 @@ const NameScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <div className="overlay screen-gradient"></div>
       <div className="overlay">
         <form onSubmit={handleSubmit}>
           <label htmlFor="">Escriba el nombre de su empresa</label>

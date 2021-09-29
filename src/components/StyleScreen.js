@@ -22,7 +22,6 @@ const StyleScreen = ({ options }) => {
 
   return (
     <div className="screen">
-      <div className="overlay screen-gradient"></div>
       <div className="overlay">
         <form action="">
           <label htmlFor="">¿Qué estilo piensa que posee su logotipo?</label>

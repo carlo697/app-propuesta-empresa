@@ -12,8 +12,6 @@ const Buttons = ({
 }) => {
   const {
     index,
-    nextScreen,
-    lastScreen,
     firstScreen,
     screenCount,
     skipScreens,
@@ -47,7 +45,7 @@ const Buttons = ({
 
       {index !== screenCount - 1 && showForwardButton ? (
         <button
-          className="btn btn-outline"
+          className="btn"
           onClick={handleGoNext}
           disabled={disableForwardButton}
         >

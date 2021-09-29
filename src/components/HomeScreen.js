@@ -5,7 +5,6 @@ import logo from "../img/logo2.png";
 const HomeScreen = ({ options }) => {
   return (
     <div className="screen">
-      <div className="overlay screen-gradient"></div>
 
       <div className="overlay">
         <img src={logo} className="home-logo" alt="PYPAGE logo" />
